@@ -1,0 +1,121 @@
+body {
+    background-image: url(https://static.toiimg.com/photo/86814605.cms);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main-container {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#img-container {
+    display: flex;
+    margin: auto;
+    width: 75%;
+    height: fit-content;
+    background-color: whitesmoke;
+}
+
+.homePage {
+    text-align: center;
+    width: max-content;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    background:rgba(255,255,255, .9);
+    border-radius: 50px;
+    display: "";
+}
+
+#info {
+    width: 54%;
+    margin-top: 25px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 35px;
+}
+
+
+
+#imgs{
+    max-width: 570px;
+    max-height: 550px;
+    min-height: 450px;
+    border: 9px solid blanchedalmond;
+}
+
+#btn {
+    margin: auto;
+    position: relative;
+    border: 2px solid black;
+    padding: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 25px;
+    background-color: blanchedalmond;
+    font-weight: 700;
+}
+#like-btn {
+    margin: auto;
+    margin-top: 25px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    background: none;
+    border: none;
+    font-size: 30px;
+}
+
+#form {
+    margin-top: 25px;
+}
+
+#review {
+    font-size: 15px;
+}
+
+#shopName {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+#addy {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+#reviewSection {
+    display: flex;
+    max-width: 60%;
+    margin: auto;
+    margin-top: 25px;
+    height: max-content;
+    background-color: white;
+    border: 1px solid black;
+}
+
+#reviewSubmitted {
+    margin: 5px;
+    font-size: 15px;
+    width: max-content;
+    height: max-content;
+}
+
+/* #reviewSection {
+    margin-top: 15px;
+} */
+
+@media ( max-width: 900px){
+    #btn {
+        margin-left: 25%;
+        margin-top: 20px;
+    }
+}
