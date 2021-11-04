@@ -109,14 +109,18 @@ const renderLikeButton = shopObj => {
     shopInfo.appendChild(liker)
     liker.addEventListener("click", event => {
         event.preventDefault()
-        if(event.target.innerHTML === like) {
-            event.target.innerHTML = ""
-            event.target.innerHTML = liked
-          } else if (event.target.innerHTML === liked) {
-            event.target.innerHTML = ""
-            event.target.innerHTML = like
-          }
+        likeHandler(shopObj)
     })
+}
+
+const likeHandler = shopObj => {
+    if(liker.innerHTML === like) {
+        liker.innerHTML = ""
+        liker.innerHTML = liked
+      } else if (liker.innerHTML === liked) {
+        liker.innerHTML = ""
+        liker.innerHTML = like
+      }
 }
 
 const renderSubmit = shopObj => {
