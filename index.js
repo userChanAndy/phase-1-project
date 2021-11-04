@@ -21,6 +21,9 @@ const input = document.createElement("input")
 input.type = "text"
 input.id = "input"
 input.name = "review"
+const deleteBtn = document.createElement("button")
+deleteBtn.id = "deleteBtn"
+const deleteButton = document.querySelector("#deleteBtn")
 const inputValue = document.querySelector("#input")
 const submit = document.createElement("input")
 submit.type = "submit"
@@ -74,6 +77,8 @@ const generator = shopObj => {
     renderLikeButton(shopObj)
 //render submit review form
     renderSubmit(shopObj)
+//render delete review butn
+    renderDelete(shopObj)
 }
 
 const homePageDelete = shopObj => {
@@ -142,6 +147,21 @@ const submitHandler = shopObj => {
     shopInfo.appendChild(reviewSection)
     reviewSection.appendChild(reviewSubmitted)
     input.value = ""
+    reviewSection.style.display = ""
+}
+
+const renderDelete = shopObj => {
+    deleteBtn.innerHTML = "X"
+    reviewSection.appendChild(deleteBtn)
+    deleteBtn.addEventListener("click", event => {
+        event.preventDefault()
+        deleteHandler()
+    })
+}
+
+const deleteHandler = () => {
+    reviewSubmitted.innerHTML = ""
+    reviewSection.style.display = "none"
 }
 
 //run javascript async whie DOM is loading

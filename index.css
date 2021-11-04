@@ -42,7 +42,11 @@ body {
     font-size: 35px;
 }
 
-
+#deleteBtn {
+    font-size: 10px;
+    border: none;
+    background: none;
+}
 
 #imgs{
     max-width: 570px;
