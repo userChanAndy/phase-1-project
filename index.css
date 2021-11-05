@@ -6,7 +6,8 @@ body {
 }
 
 #button-container {
-    width: 100%;
+    width: 70%;
+    margin: auto;
     height: 150px;
     position: relative;
     display: flex;
@@ -37,7 +38,7 @@ body {
 
 #info {
     width: 54%;
-    margin-top: 10px;
+    margin-top: 1px;
     text-align: center;
     padding-top: 20px;
     font-size: 35px;
@@ -104,7 +105,6 @@ body {
 }
 
 #reviewSection {
-    display: flex;
     max-width: 60%;
     margin: auto;
     margin-top: 25px;
@@ -133,11 +133,11 @@ body {
 }
 #modal-content {
     width: 900px;
-    height: 630px;
+    height: 650px;
     background-color: black;
 }
 
-#exitModal {
+.exitModal {
     background-color: white;
     margin-left: 97.5%;
 }

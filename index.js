@@ -6,7 +6,7 @@ const buttonContainer = document.querySelector("#button-container")
 const imgContainer = document.querySelector("#img-container")
 const homePage = document.querySelector(".homePage")
 const modal = document.querySelector(".modal")
-const exitModal = document.querySelector("#exitModal")
+// exitModal = document.querySelector(".exitModal")
 
 //create html elements being rendered to dom 
 const images = document.createElement("img")
@@ -46,8 +46,8 @@ reviewSubmitted.id = "reviewSubmitted"
 const shopBtn = () => {
     fetch(coffeeShopData)
     .then(res => res.json())
-    .then(shopData => shopIterator(shopData)
-    )}
+    .then(shopData => shopIterator(shopData))
+}
 
 //iterate through shops and create button for each shop
 const shopIterator = (shopData) => {
@@ -62,6 +62,7 @@ const shopIterator = (shopData) => {
         button.addEventListener("click", event => {
             event.preventDefault()
             generator(shop)
+            input.value = ""
         })
     })
 }
@@ -142,7 +143,6 @@ const likeHandler = () => {
 }
 
 const renderSubmit = shop => {
-    label.innerHTML = ""
     label.innerHTML = "Leave a Review:  "
     form.appendChild(label)
     form.appendChild(input)
@@ -154,13 +154,14 @@ const renderSubmit = shop => {
     })
 }
 
+
+
 const submitHandler = () => {
     reviewSubmitted.innerHTML = ""
     reviewSubmitted.innerHTML = input.value
     shopInfo.appendChild(reviewSection)
     reviewSection.appendChild(reviewSubmitted)
-    input.value = ""
-    reviewSection.style.display = ""
+    reviewSection.style.display = "flex"
 }
 
 const renderDelete = () => {
@@ -177,11 +178,12 @@ const deleteHandler = () => {
     reviewSection.style.display = "none"
 }
 
-//render modal functionality
-exitModal.addEventListener("click", event => {
+ //render modal functionality
+document.querySelector(".exitModal").addEventListener("click", event => {
     event.preventDefault()
-    exitModalHandler()
+    modal.style.display = "none"
 })
+
 
 const exitModalHandler = () => {
     modal.style.display = "none"
@@ -226,7 +228,5 @@ const setupMap = (center) => {
 //run javascript async whie DOM is loading
 document.addEventListener("DOMContentLoaded", () => shopBtn()) 
 document.addEventListener("DOMContentLoaded", () => locateUser())
-
-
 
 
