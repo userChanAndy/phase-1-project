@@ -8,7 +8,7 @@ const shopInfo = document.createElement("div")
 shopInfo.id = "info"
 const shopName = document.createElement("h1")
 shopName.id = "shopName"
-const shopAddress = document.createElement("p")
+const shopAddress = document.createElement("button")
 shopAddress.id = "addy"
 const liker = document.createElement("button")
 liker.id = "like-btn"
@@ -35,6 +35,7 @@ reviewSection.id = "reviewSection"
 const reviewSubmitted = document.createElement("p")
 reviewSubmitted.id = "reviewSubmitted"
 const shopObj = [""]
+const modal = document.querySelector(".modal")
 
 // take coffeeShops names and append to dom as buttons
 // take coffeeShops images and renders them on DOM
@@ -106,6 +107,14 @@ const renderShopAddress = shopObj => {
     shopAddress.innerHTML = ""
     shopAddress.innerHTML = shopObj.address
     shopInfo.appendChild(shopAddress)
+    shopAddress.addEventListener("click", event => {
+        event.preventDefault()
+        shopAddyHandler(shopObj)
+    })
+}
+
+const shopAddyHandler = shopObj => {
+    modal.style.display = "flex"
 }
 
 const renderLikeButton = shopObj => {
@@ -164,5 +173,56 @@ const deleteHandler = () => {
     reviewSection.style.display = "none"
 }
 
+//modal functionality
+exitModal.addEventListener("click", event => {
+    event.preventDefault()
+    exitModalHandler()
+})
+
+const exitModalHandler = () => {
+    modal.style.display = "none"
+}
+
+//mapbox API
+mapboxgl.accessToken = "pk.eyJ1IjoiZGV2a2luZ2FuZHkiLCJhIjoiY2t2bGd4bjI3ZGRwbDJxbWFjanNwOXM1dCJ9.xBHuKwprw20LlTjuX-VjUA"
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+});
+
+
+//gets user location
+const  locateUser = () => navigator.geolocation.getCurrentPosition(success, error, {enableHighAccuracy: true})
+
+const success = position => {
+    setupMap([position.coords.longitude, position.coords.latitude])
+}
+
+const error = () => {
+    setupMap([0,0])
+}
+const setupMap = (center) => {
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: center,
+        zoom: 13 
+    });
+
+    const nav = new mapboxgl.NavigationControl()
+    map.addControl(nav)
+
+    const directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    })
+
+    map.addControl(directions, "top-left")
+}
+
 //run javascript async whie DOM is loading
 document.addEventListener("DOMContentLoaded", () => shopBtn()) 
+document.addEventListener("DOMContentLoaded", () => locateUser())
+
+
+
+

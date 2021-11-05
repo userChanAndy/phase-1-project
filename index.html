@@ -3,6 +3,14 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="index.css">
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+          type="text/css"
+        />
     </head>
     <body>
         <div id="main-container"></div>
@@ -10,6 +18,12 @@
         <div class = homePage>
             <h1>Hello, looking for some coffee?</h1>
             <p>Visit some of my favorite shops and leave a review!</p>
+        </div>
+        <div class = "modal">
+            <div id = "modal-content">
+                <button id="exitModal">x</button>
+                <div id="map"></div>
+            </div>
         </div>
         <script src="index.js"></script>
     </body>

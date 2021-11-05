@@ -6,8 +6,7 @@
         "image": "https://cdn.shopify.com/s/files/1/0923/5128/t/37/assets/location_image_eleven_one.jpg?v=17429125533547700040",
         "address": "71 Irving Pl, New York, NY 10003",
         "description": "",
-        "dislikes": 0,
-        "likes": 0
+        "coords": "[-73.98696,40.73681]"
       },
       {
         "id": 2,
@@ -15,8 +14,7 @@
         "image": "https://cdn.wallpaper.com/main/wal266.design_excinere.ben_richards_blue_bottle_shibuya_web_res_002_header_srgb.jpg",
         "address": "203 7th Ave, Brooklyn, NY 11215",
         "description": "",
-        "dislikes": 0,
-        "likes": 0
+        "coords": "[-73.97814,40.67075]"
       },
       {
         "id": 3,
@@ -24,8 +22,7 @@
         "image": "https://media-cdn.tripadvisor.com/media/photo-s/12/f3/67/45/gregorys-coffee-nice.jpg",
         "address": "649 Broadway, New York, NY 10012",
         "description": "",
-        "dislikes": 0,
-        "likes": 0
+        "coords": "-73.99561, 40.72681"
       },
       {
         "id": 4,
@@ -33,8 +30,7 @@
         "image": "https://images.squarespace-cdn.com/content/v1/5b846bb7af20960aea643be2/1536860089767-FIOHDRGVYESAHNWSVPCH/GAC_lafayette_DSC_2175_flare.jpg?format=2500w",
         "address": "325 Lafayette St, New York, NY 10012",
         "description": "",
-        "dislikes": 0,
-        "likes": 0
+        "coords": "[-73.99484,40.72543]"
       },
       {
         "id": 5,
@@ -42,8 +38,7 @@
         "image": "https://s3-media0.fl.yelpcdn.com/bphoto/-F2zIWlXyuEdG9iwhyqwSQ/l.jpg",
         "address": "547 Flatbush Ave, Brooklyn, NY 11225",
         "description": "",
-        "dislikes": 0,
-        "likes": 0
+        "coords": "[-73.96049,40.66054]"
       }
     ]
   }
