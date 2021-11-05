@@ -42,6 +42,7 @@ body {
     padding-top: 20px;
     font-size: 35px;
     display: inline-block;
+    max-width: max-content;
 }
 
 #deleteBtn {
@@ -126,7 +127,7 @@ body {
     position: absolute;
     top: 0;
     margin-left: -9.7px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
