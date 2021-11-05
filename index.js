@@ -1,7 +1,14 @@
+//json server api
 const coffeeShopData = `http://localhost:3000/coffeeShops`
-const buttonContainer = document.querySelector("#main-container")
+
+//grab from html
+const buttonContainer = document.querySelector("#button-container")
 const imgContainer = document.querySelector("#img-container")
 const homePage = document.querySelector(".homePage")
+const modal = document.querySelector(".modal")
+const exitModal = document.querySelector("#exitModal")
+
+//create html elements being rendered to dom 
 const images = document.createElement("img")
 images.id = "imgs"
 const shopInfo = document.createElement("div")
@@ -21,21 +28,18 @@ const input = document.createElement("input")
 input.type = "text"
 input.id = "input"
 input.name = "review"
-const deleteBtn = document.createElement("button")
-deleteBtn.id = "deleteBtn"
-const deleteButton = document.querySelector("#deleteBtn")
-const inputValue = document.querySelector("#input")
 const submit = document.createElement("input")
 submit.type = "submit"
 submit.value = "submit"
+const deleteBtn = document.createElement("button")
+deleteBtn.id = "deleteBtn"
 const like = '🤍'
 const liked = '❤️'
 const reviewSection = document.createElement("div")
 reviewSection.id = "reviewSection"
 const reviewSubmitted = document.createElement("p")
 reviewSubmitted.id = "reviewSubmitted"
-const shopObj = [""]
-const modal = document.querySelector(".modal")
+
 
 // take coffeeShops names and append to dom as buttons
 // take coffeeShops images and renders them on DOM
@@ -46,8 +50,8 @@ const shopBtn = () => {
     )}
 
 //iterate through shops and create button for each shop
-const shopIterator = (shops) => {
-    shops.forEach(shop => {
+const shopIterator = (shopData) => {
+    shopData.forEach(shop => {
         const button = document.createElement("button")
         button.innerHTML=""
         button.id = "btn"
@@ -63,71 +67,71 @@ const shopIterator = (shops) => {
 }
 
 //generates info and images on DOM
-const generator = shopObj => {
+const generator = shop => {
 //hides default home text
-    homePageDelete(shopObj)
+    homePageDelete(shop)
 //render image on DOM
-    renderImgs(shopObj)
+    renderImgs(shop)
 //prepare div containing description
-    renderShopInfo(shopObj)
+    renderShopInfo(shop)
 //render shop name to DOM
-    renderShopName(shopObj)
+    renderShopName(shop)
 // render shop address to DOM
-    renderShopAddress(shopObj)
+    renderShopAddress(shop)
 //render like button
-    renderLikeButton(shopObj)
+    renderLikeButton(shop)
 //render submit review form
-    renderSubmit(shopObj)
+    renderSubmit(shop)
 //render delete review butn
-    renderDelete(shopObj)
+    renderDelete(shop)
 }
 
-const homePageDelete = shopObj => {
+const homePageDelete = shop => {
     homePage.style.display = "none"
 } 
 
-const renderImgs = shopObj => {
+const renderImgs = shop => {
     imgContainer.innerHTML= ""
-    images.src = shopObj.image
+    images.src = shop.image
     imgContainer.appendChild(images)
 }
 
-const renderShopInfo = shopObj => {
+const renderShopInfo = shop => {
     shopInfo.innerHTML = ""
     imgContainer.appendChild(shopInfo)
 }
 
-const renderShopName = shopObj => {
+const renderShopName = shop => {
     shopName.innerHTML = ""
-    shopName.innerHTML = shopObj.name
+    shopName.innerHTML = shop.name
     shopInfo.appendChild(shopName)
 }
 
-const renderShopAddress = shopObj => {
+const renderShopAddress = shop => {
     shopAddress.innerHTML = ""
-    shopAddress.innerHTML = shopObj.address
+    shopAddress.innerHTML = shop.address
     shopInfo.appendChild(shopAddress)
     shopAddress.addEventListener("click", event => {
         event.preventDefault()
-        shopAddyHandler(shopObj)
+        shopAddyHandler(shop)
     })
 }
 
-const shopAddyHandler = shopObj => {
+const shopAddyHandler = () => {
     modal.style.display = "flex"
 }
 
-const renderLikeButton = shopObj => {
+const renderLikeButton = shop => {
     liker.innerHTML = ""
     liker.innerHTML = like
     shopInfo.appendChild(liker)
     liker.addEventListener("click", event => {
         event.preventDefault()
-        likeHandler(shopObj)
+        likeHandler(shop)
     })
 }
 
-const likeHandler = shopObj => {
+const likeHandler = () => {
     if(liker.innerHTML === like) {
         liker.innerHTML = ""
         liker.innerHTML = liked
@@ -137,7 +141,7 @@ const likeHandler = shopObj => {
       }
 }
 
-const renderSubmit = shopObj => {
+const renderSubmit = shop => {
     label.innerHTML = ""
     label.innerHTML = "Leave a Review:  "
     form.appendChild(label)
@@ -150,7 +154,7 @@ const renderSubmit = shopObj => {
     })
 }
 
-const submitHandler = shopObj => {
+const submitHandler = () => {
     reviewSubmitted.innerHTML = ""
     reviewSubmitted.innerHTML = input.value
     shopInfo.appendChild(reviewSection)
@@ -159,7 +163,7 @@ const submitHandler = shopObj => {
     reviewSection.style.display = ""
 }
 
-const renderDelete = shopObj => {
+const renderDelete = () => {
     deleteBtn.innerHTML = "X"
     reviewSection.appendChild(deleteBtn)
     deleteBtn.addEventListener("click", event => {
@@ -173,7 +177,7 @@ const deleteHandler = () => {
     reviewSection.style.display = "none"
 }
 
-//modal functionality
+//render modal functionality
 exitModal.addEventListener("click", event => {
     event.preventDefault()
     exitModalHandler()
@@ -206,7 +210,7 @@ const setupMap = (center) => {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: center,
-        zoom: 13 
+        zoom: 15
     });
 
     const nav = new mapboxgl.NavigationControl()
