@@ -62,7 +62,6 @@ const shopIterator = (shopData) => {
         button.addEventListener("click", event => {
             event.preventDefault()
             generator(shop)
-            input.value = ""
         })
     })
 }
@@ -70,7 +69,7 @@ const shopIterator = (shopData) => {
 //generates info and images on DOM
 const generator = shop => {
 //hides default home text
-    homePageDelete(shop)
+    homePage.style.display = "none" 
 //render image on DOM
     renderImgs(shop)
 //prepare div containing description
@@ -86,10 +85,6 @@ const generator = shop => {
 //render delete review butn
     renderDelete(shop)
 }
-
-const homePageDelete = shop => {
-    homePage.style.display = "none"
-} 
 
 const renderImgs = shop => {
     imgContainer.innerHTML= ""
@@ -112,31 +107,29 @@ const renderShopAddress = shop => {
     shopAddress.innerHTML = ""
     shopAddress.innerHTML = shop.address
     shopInfo.appendChild(shopAddress)
-    shopAddress.addEventListener("click", event => {
-        event.preventDefault()
-        shopAddyHandler(shop)
-    })
 }
 
-const shopAddyHandler = () => {
+shopAddress.addEventListener("click", event => {
+    event.preventDefault()
     modal.style.display = "flex"
-}
+})
 
 const renderLikeButton = shop => {
     liker.innerHTML = ""
     liker.innerHTML = like
     shopInfo.appendChild(liker)
-    liker.addEventListener("click", event => {
-        event.preventDefault()
-        likeHandler(shop)
-    })
 }
+
+liker.addEventListener("click", event => {
+    event.preventDefault()
+    likeHandler()
+})
 
 const likeHandler = () => {
     if(liker.innerHTML === like) {
         liker.innerHTML = ""
         liker.innerHTML = liked
-      } else if (liker.innerHTML === liked) {
+      } else {
         liker.innerHTML = ""
         liker.innerHTML = like
       }
@@ -148,20 +141,21 @@ const renderSubmit = shop => {
     form.appendChild(input)
     form.appendChild(submit)
     shopInfo.appendChild(form)
-    submit.addEventListener("click", event => {
-        event.preventDefault()
-        submitHandler()
-    })
 }
 
+//event listener on submit calls submitHandler for every submit is being submitted
+submit.addEventListener("click", event => {
+    event.preventDefault()
+    submitHandler()
+})
 
 
 const submitHandler = () => {
-    reviewSubmitted.innerHTML = ""
     reviewSubmitted.innerHTML = input.value
     shopInfo.appendChild(reviewSection)
     reviewSection.appendChild(reviewSubmitted)
     reviewSection.style.display = "flex"
+    form.reset()
 }
 
 const renderDelete = () => {
@@ -190,7 +184,7 @@ const exitModalHandler = () => {
 }
 
 //mapbox API
-mapboxgl.accessToken = "pk.eyJ1IjoiZGV2a2luZ2FuZHkiLCJhIjoiY2t2bGd4bjI3ZGRwbDJxbWFjanNwOXM1dCJ9.xBHuKwprw20LlTjuX-VjUA"
+mapboxgl.accessToken = "pk.eyJ1IjoiZGV2a2luZ2FuZHkiLCJhIjoiY2t2aTgyNXFsMXdtdzJucWY2M3J4dmZ6eiJ9.klv-mYgNLY27BsMOP9l-Mg"
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11'
