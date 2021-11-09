@@ -1,6 +1,10 @@
 //json server api
 const coffeeShopData = `http://localhost:3000/coffeeShops`
 
+//run javascript async whie DOM is loading
+document.addEventListener("DOMContentLoaded", () => shopBtn()) 
+document.addEventListener("DOMContentLoaded", () => locateUser())
+
 //grab from html
 const buttonContainer = document.querySelector("#button-container")
 const imgContainer = document.querySelector("#img-container")
@@ -218,9 +222,4 @@ const setupMap = (center) => {
 
     map.addControl(directions, "top-left")
 }
-
-//run javascript async whie DOM is loading
-document.addEventListener("DOMContentLoaded", () => shopBtn()) 
-document.addEventListener("DOMContentLoaded", () => locateUser())
-
 

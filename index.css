@@ -17,7 +17,7 @@ body {
 #img-container {
     display: flex;
     margin: auto;
-    width: 75%;
+    width: 70%;
     height: fit-content;
     background-color: whitesmoke;
     border-radius: 25px;
@@ -37,7 +37,8 @@ body {
 }
 
 #info {
-    width: 54%;
+    width: 40%;
+    margin: auto;
     margin-top: 1px;
     text-align: center;
     padding-top: 20px;
@@ -153,24 +154,3 @@ body {
 /* #reviewSection {
     margin-top: 15px;
 } */
-
-@media ( min-width: 1640px){
-    #btn {
-        margin: auto;
-        border: 2px solid black;
-        padding: 25px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border-radius: 25px;
-        background-color: blanchedalmond;
-        font-weight: 700;
-    }
-    #img-container {
-        display: flex;
-        margin: auto;
-        width: 35%;
-        height: fit-content;
-        background-color: whitesmoke;
-        border-radius: 25px;
-    }
-}
