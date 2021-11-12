@@ -39,13 +39,15 @@ body {
 #info {
     width: 40%;
     margin: auto;
-    margin-top: 1px;
+    margin-top: -2px;
     text-align: center;
     padding-top: 20px;
     font-size: 35px;
     display: inline-block;
     max-width: max-content;
 }
+
+
 
 #deleteBtn {
     font-size: 10px;
@@ -93,7 +95,7 @@ body {
 }
 
 #shopName {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 900;
 }
 
